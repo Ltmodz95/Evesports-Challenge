@@ -9,7 +9,7 @@ export class ListMemberShipsHandler {
     private readonly billingPeriodRepo: IBillingPeriodRepository,
   ) {}
 
-  async execute(): Promise<{ membership: Membership, membershipPeriods: BillingPeriod[] }[]> {
+  async execute(): Promise<{ membership: Membership, periods: BillingPeriod[] }[]> {
     const memeberships = await this.membershipRepo.findAll();
     const membershipPeriods = await this.billingPeriodRepo.findAll();
     let indexedMembershipPeriods: { [key: string]: BillingPeriod[] } = {};
@@ -17,10 +17,10 @@ export class ListMemberShipsHandler {
       indexedMembershipPeriods[membershipPeriod.membership] = indexedMembershipPeriods[membershipPeriod.membership] || [];
       indexedMembershipPeriods[membershipPeriod.membership].push(membershipPeriod);
     }
-    let data: { membership: Membership, membershipPeriods: BillingPeriod[] }[] = [];
+    let data: { membership: Membership, periods: BillingPeriod[] }[] = [];
     for (const membership of memeberships) {
       const membershipPeriods = indexedMembershipPeriods[membership.id];
-      data.push({ membership, membershipPeriods });
+      data.push({ membership, periods: membershipPeriods });
     }
     return data;
   }

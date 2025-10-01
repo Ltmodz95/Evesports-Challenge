@@ -8,8 +8,13 @@ const billingPeriodRepository = RepositoryFactory.createBillingPeriodRepository(
 
 router.get("/", async (req: Request, res: Response) => {
   const listMemberShipsHandler = new ListMemberShipsHandler(membershipRepository, billingPeriodRepository);
+  try {
   const memberships = await listMemberShipsHandler.execute();
-  res.status(200).json({ memberships });
+  console.log(memberships);
+  res.status(200).json(memberships);
+  } catch (error) {
+    res.status(500).json({ message: (error as Error).message });
+  }
 })
 
 router.post("/", async (req: Request, res: Response) => {

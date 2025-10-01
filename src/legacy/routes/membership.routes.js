@@ -107,7 +107,7 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
   const rows = []
   for (const membership of memberships) {
-    const periods = membershipPeriods.filter(p => p.membershipId === membership.id)
+    const periods = membershipPeriods.filter(p => p.membership === membership.id)
     rows.push({ membership, periods })
   }
   res.status(200).json(rows);

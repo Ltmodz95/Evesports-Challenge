@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Billing } from '../value-objects/billing.vo';
-import { BillingPeriod } from '../entities/billing-period.entity';
+
 
 enum PaymentMethod {
     CASH = 'cash',
@@ -28,7 +28,7 @@ export class Membership {
     billingInterval: string;
     billingPeriods: number;
     userId: number;
-
+    state: string;
     constructor(props: MembershipProps) {
         this.uuid = uuidv4();
         this.id = 0; // will be set by the repository defaulting to 0
@@ -40,6 +40,7 @@ export class Membership {
         this.billingPeriods = props.billingPeriods;
         this.userId = props.userId || 2000;
         this.validUntil = this.calculateValidUntil();
+        this.state = this.setState();
     }
 
 
@@ -72,5 +73,15 @@ export class Membership {
             validUntil.setDate(this.validFrom.getDate() + this.billingPeriods * 7);
         }
         return validUntil;
+    }
+
+    private setState(): string {
+        let state = 'active';
+        if (this.validFrom > new Date()) {
+            state = 'pending';
+        } else if (this.validUntil < new Date()) {
+            state = 'expired';
+        }
+        return state
     }
 }
