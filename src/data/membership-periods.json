@@ -1,794 +1,402 @@
 [
   {
     "id": 1,
-    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "uuid": "e6fa71cd-4f06-4165-84b9-a5a1744fbe2f",
     "membership": 1,
-    "start": "2023-01-01",
-    "end": "2023-01-31",
-    "state": "issued"
+    "start": "2025-10-01T00:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
+    "state": "planned"
   },
   {
     "id": 2,
-    "uuid": "123e4567-e89b-12d3-a456-426614174001",
-    "membership": 2,
-    "start": "2023-02-01",
-    "end": "2023-02-28",
-    "state": "issued"
+    "uuid": "9d8c131e-762b-49d1-90a2-718d9e9038d2",
+    "membership": 1,
+    "start": "2025-10-01T00:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
+    "state": "planned"
   },
   {
     "id": 3,
-    "uuid": "123e4567-e89b-12d3-a456-426614174002",
-    "membership": 3,
-    "start": "2023-03-01",
-    "end": "2023-03-31",
-    "state": "issued"
+    "uuid": "d97cca4d-8daa-4ad0-ad1e-6ccb9cb3c034",
+    "membership": 1,
+    "start": "2025-10-01T00:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
+    "state": "planned"
   },
   {
     "id": 4,
-    "uuid": "2da1f7fa-2e80-48af-bc68-ce3afe9388dc",
-    "membership": 6,
+    "uuid": "674c6e5d-8906-41d8-90cf-aa51a35237a1",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 5,
-    "uuid": "1fb6ec8f-ba77-407d-b1be-ffc5c6b4c3fc",
-    "membership": 6,
+    "uuid": "91bdea37-1835-4fed-888e-becbfcfa7e62",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 6,
-    "uuid": "dfe8d7f2-691d-43cb-8a3e-92cbe6b3d5ff",
-    "membership": 7,
+    "uuid": "56c44aa0-3109-415d-b82e-ccc054484b7f",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 7,
-    "uuid": "9c82c073-b3ca-4507-a8f5-de80a980eb84",
-    "membership": 7,
+    "uuid": "8dd18193-cfec-45ed-8c44-0ebec609d8eb",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 8,
-    "uuid": "bd61ad62-9c35-4ece-9fda-141a2dd2532c",
-    "membership": 8,
+    "uuid": "e0b780d2-01ee-4976-830e-5a755f0e2d29",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 9,
-    "uuid": "cfad215f-6d36-40b3-8cec-8591315715a1",
-    "membership": 8,
+    "uuid": "2c8f8391-4c66-4240-a622-57dbc5f98f9f",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 10,
-    "uuid": "e26a1c02-1c06-4a77-a74a-98916f586e57",
-    "membership": 8,
+    "uuid": "96e646b9-83ea-4f7f-9fc7-edf764665e61",
+    "membership": 1,
     "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "end": "2026-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 11,
-    "uuid": "0dd61a76-0319-4eaf-ad9b-a18019aa499c",
-    "membership": 8,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a8297568-0249-4513-9576-f8afb3adf0c6",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 12,
-    "uuid": "0eee0d0b-89b2-4e97-b5ef-a9e7dcaa6e16",
-    "membership": 8,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "1c6f1978-5e38-40ff-a5c7-e47b0fd355a1",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 13,
-    "uuid": "c9f5bb3a-5fc5-4f8c-b3f5-af37a58a1f74",
-    "membership": 9,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "882ff471-c2e3-4cdf-811a-de8ee571a247",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 14,
-    "uuid": "96512ffc-d6da-4f06-9c81-6c2dd5cc72a8",
-    "membership": 10,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "fad579c8-18ef-4b1f-a383-2d3934956d66",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 15,
-    "uuid": "ed2b9124-4906-4207-9c71-fb4741dd08f9",
-    "membership": 10,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "c06c63ae-7b68-467d-bf50-3df3f4d2770d",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 16,
-    "uuid": "e6441165-1271-45a5-b149-e78b54154f2e",
-    "membership": 10,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "23846fe0-581c-4983-b059-67a63f21f63b",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 17,
-    "uuid": "cccd2e12-c1ec-4b74-b2f2-266d44019c06",
-    "membership": 10,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "471f1274-2b40-4604-a3b2-344d852f44e9",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 18,
-    "uuid": "1ca51299-e5ae-4764-910a-332000c1ff78",
-    "membership": 10,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "6329fe16-ed94-4121-bde2-b608f1bb819e",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 19,
-    "uuid": "57d0df9a-ba6e-4bf7-a14e-1679ecd92171",
-    "membership": 11,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "aced9153-7a31-4e45-9a82-7666ab75f0ab",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 20,
-    "uuid": "783c4e33-6168-40b9-9f93-87489b914846",
-    "membership": 11,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "e1a016e3-5174-4659-bd0a-41cc0a4a8699",
+    "membership": 2,
+    "start": "2024-10-01T00:00:00.000Z",
+    "end": "2025-08-01T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 21,
-    "uuid": "561cb292-234d-40cc-95a4-f2e98178ea5e",
-    "membership": 11,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "00f566ed-478f-4146-9826-eccfd9495846",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 22,
-    "uuid": "68368323-8bc9-4455-9b6f-e361c0521147",
-    "membership": 12,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "302272ab-735a-4d00-9286-ab80953145f6",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 23,
-    "uuid": "7f100826-d40f-4cb8-bbb8-0bd41015aefe",
-    "membership": 13,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "f8566678-95a5-4bf5-b551-b3c2e6befa33",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 24,
-    "uuid": "e777faea-3eab-4c90-ae75-27004666998d",
-    "membership": 13,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "cc89239d-3cee-48b0-872a-bf1c7c5b680f",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 25,
-    "uuid": "662980fc-1f84-49e8-af6b-ddfaf35800c2",
-    "membership": 13,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "670e18e7-e700-4029-a4c2-12c311a3f065",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 26,
-    "uuid": "f8695e9a-d4e6-4b01-90a8-db630f79ec13",
-    "membership": 13,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "0ad61c73-d13a-45c1-9762-61d9512ee9c8",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 27,
-    "uuid": "0ec95136-1cfb-419c-b79b-e17b25e19188",
-    "membership": 14,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "30c25d14-5ac5-46d0-96f2-c6691ef0248d",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 28,
-    "uuid": "92aa0f4f-529c-4f74-a701-686f93881a26",
-    "membership": 14,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "7af81f68-918c-425b-a87d-4e3705446955",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 29,
-    "uuid": "f3880a43-0c91-486f-a555-a3123129b250",
-    "membership": 15,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a82cfccd-0f1b-44b0-a0d1-58f425966a60",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 30,
-    "uuid": "db89d12e-97dc-4e80-9e8b-a12dca02c0de",
-    "membership": 15,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "ca0b6fa1-e42b-49af-8288-78355316ec1d",
+    "membership": 3,
+    "start": "2024-10-10T00:00:00.000Z",
+    "end": "2025-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 31,
-    "uuid": "15386c8c-8e0f-47ce-9c8b-1da9af6cfc7f",
-    "membership": 15,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "cb9fa61f-005b-45e9-b02b-d451d897c4b1",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 32,
-    "uuid": "fa260607-e6be-45aa-af44-97eca7ac6242",
-    "membership": 16,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "c34c403f-3c22-470c-b6aa-c89ff50b5e27",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 33,
-    "uuid": "69eabfd3-b64e-4a74-bef1-f10dd6216e8f",
-    "membership": 16,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a4da693f-7f04-4324-8ee0-b549827741da",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 34,
-    "uuid": "409b661e-887c-4b1b-b5ef-fad2032642d8",
-    "membership": 17,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "e902031f-531a-408f-81f5-6e1e48a2d19f",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 35,
-    "uuid": "34d403d2-c850-4a7e-b8e7-38b4472cf91d",
-    "membership": 18,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a35a5a47-de58-4148-946d-2dcee09a2204",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 36,
-    "uuid": "76093781-0b77-4c98-bc15-c1d47e5e4183",
-    "membership": 18,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "f1e5a957-66a7-444d-8f1f-aa707147255f",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 37,
-    "uuid": "e2e75cef-21b4-4485-83eb-e283f851c732",
-    "membership": 18,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "779d5fb4-1d64-4f5a-997b-947d9da4d949",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 38,
-    "uuid": "98f9af9b-0530-463c-a786-3d90e309a937",
-    "membership": 18,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "b50ae4c7-c2f5-4809-9a61-d0dce4c1973a",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 39,
-    "uuid": "353bc5ec-7165-4275-bb79-c4383f43cb0c",
-    "membership": 18,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "5792c543-dee5-4809-8278-6af15a467188",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 40,
-    "uuid": "2ded6128-3229-43e9-a86d-f5ca03cb4953",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a280e3f5-d3d1-4de9-b9fb-64b67c0484a6",
+    "membership": 4,
+    "start": "2025-10-10T00:00:00.000Z",
+    "end": "2026-08-10T00:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 41,
-    "uuid": "9a8735f9-2a18-4709-8c8e-8f1cd023837b",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a508a0bb-4b88-4a01-bd15-f90109b1be05",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 42,
-    "uuid": "11274d92-a2aa-4271-a78b-61b29ddf4d87",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "c77ad4d7-aa17-42c3-92ed-908722f79aba",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 43,
-    "uuid": "ac35365d-ccbf-48d0-a698-b748521b63ac",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "18d007a6-2d7f-48a8-84f0-781f9da28c43",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 44,
-    "uuid": "fefa7bae-e390-4856-b641-5ccb6814802c",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "a44bf8bc-1383-4905-b320-d4619080e031",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 45,
-    "uuid": "9452e8c1-fac3-4892-bd27-3e7a2a82397a",
-    "membership": 19,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-04-01T01:00:00.000Z",
+    "uuid": "14e13b2e-2603-47fe-a34f-8421e8052bae",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 46,
-    "uuid": "975f78b9-8944-4c04-a0e2-5685ca83c589",
-    "membership": 20,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
+    "uuid": "4b575102-732a-47dc-a547-e12fa00a55a8",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 47,
-    "uuid": "f24d5320-9906-4525-913e-387cb826c82e",
-    "membership": 20,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
+    "uuid": "1e0d0dc0-36fd-4ce3-b099-9fc538b9f29b",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 48,
-    "uuid": "50d367f1-7045-4595-982b-d546309ee0f1",
-    "membership": 20,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
+    "uuid": "1b697923-057c-4510-9d5e-7334ed4a6f0d",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 49,
-    "uuid": "23938d35-dff4-4d41-bff9-a293733b2e76",
-    "membership": 21,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
+    "uuid": "95105331-f22c-460e-b622-ba6123990e5d",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   },
   {
     "id": 50,
-    "uuid": "0a556bf3-e54f-4842-9a27-1fb5217af73a",
-    "membership": 21,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 51,
-    "uuid": "c836b8ea-6649-4ea5-a970-e93433690d63",
-    "membership": 21,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 52,
-    "uuid": "5111d653-a74c-4c02-95de-6aa7d5974839",
-    "membership": 22,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 53,
-    "uuid": "836afb8e-89a7-422d-a689-241dd8dc7112",
-    "membership": 22,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 54,
-    "uuid": "a26f07fd-2a2b-4c74-ba1e-6ba1b02c0c09",
-    "membership": 22,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 55,
-    "uuid": "7d6ba318-dcc1-4285-bd89-728e0212ad34",
-    "membership": 23,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 56,
-    "uuid": "55533822-6fd9-4ccc-a5f0-7601486a09fe",
-    "membership": 23,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 57,
-    "uuid": "8831d30d-1e86-4cb4-869e-c347d60c4850",
-    "membership": 23,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 58,
-    "uuid": "fdbada36-1119-42b7-9034-69185e53bdbf",
-    "membership": 24,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 59,
-    "uuid": "4ab12f09-8a73-4a3f-b0d1-6781521bc361",
-    "membership": 24,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 60,
-    "uuid": "1c9d927e-600d-42bc-9f28-6e8a06ec7e4e",
-    "membership": 25,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 61,
-    "uuid": "21e9a21c-d638-49bd-81a6-99a58e462e87",
-    "membership": 25,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 62,
-    "uuid": "94618564-e74a-457d-98c4-46bac5df6b35",
-    "membership": 25,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 63,
-    "uuid": "73f5685e-8c72-4b69-b7c1-7f21cba1a229",
-    "membership": 25,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 64,
-    "uuid": "b65844b9-2bc3-463b-8413-d0537ab05019",
-    "membership": 26,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 65,
-    "uuid": "2533ba95-2314-4fe5-9a08-94d3e81e0820",
-    "membership": 27,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 66,
-    "uuid": "625bb309-83f8-4586-8f07-f0156f9d199a",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 67,
-    "uuid": "038ea2b1-495d-4ffc-8939-81c8fe6cb0c4",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 68,
-    "uuid": "23521380-fe80-4218-97e7-b95f8ffbe096",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 69,
-    "uuid": "1fa8b8cd-b09c-4c71-9e2d-ca7c68e7252f",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 70,
-    "uuid": "cec3da4b-2c27-4b00-ae81-a66285cfe684",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 71,
-    "uuid": "4d52e3e3-fdd0-4ce5-a0f9-ec4ab2a885e4",
-    "membership": 33,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 72,
-    "uuid": "68f09edd-859a-4d39-9dae-d06443480714",
-    "membership": 34,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 73,
-    "uuid": "3f8f81a2-a5ba-42a1-8bf4-aad7fbe54c10",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 74,
-    "uuid": "90846121-72e4-4950-b825-e651daead0db",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 75,
-    "uuid": "23a97feb-3291-49e3-b050-3905b1982727",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 76,
-    "uuid": "b0a05b1c-cb2c-4463-a92a-8c431c631c0f",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 77,
-    "uuid": "b7ba8fca-898b-42b2-8a86-4478e7a7c68b",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 78,
-    "uuid": "e2572311-927f-4f5b-96ef-2077ef416d55",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 79,
-    "uuid": "e5c71124-8ba1-4c13-ada4-ef3928f64f08",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 80,
-    "uuid": "cd3ea93e-b904-4fde-a71b-f1817045efe0",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 81,
-    "uuid": "00afcaee-b146-44d2-b384-3f2742032172",
-    "membership": 35,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 82,
-    "uuid": "7ff7111c-312e-4cb3-9584-4394976111e0",
-    "membership": 36,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 83,
-    "uuid": "46d2f2b9-a175-45dc-8984-de1970715d11",
-    "membership": 36,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 84,
-    "uuid": "de7c97e5-c119-469c-9c44-4c17c05a1fff",
-    "membership": 36,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 85,
-    "uuid": "dd3c3d40-e9cb-4865-b7c1-d082cc6e5113",
-    "membership": 37,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 86,
-    "uuid": "263c91e3-0c58-4ae7-b0e6-4c2b43b17b42",
-    "membership": 37,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 87,
-    "uuid": "dc188899-d2b8-47dd-ab5f-7929ce2352c9",
-    "membership": 37,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 88,
-    "uuid": "e49bef9e-be6f-4a35-8f05-e5c59a97e763",
-    "membership": 38,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 89,
-    "uuid": "dd4d758f-6a02-4004-8774-e70f3a6b36ff",
-    "membership": 38,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 90,
-    "uuid": "7ebf413f-2e8b-40ee-b6ca-c7e47540d7a0",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 91,
-    "uuid": "d886c613-fe06-47a4-b9ad-7504abc6d989",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 92,
-    "uuid": "5435677c-901f-498e-9ad7-704be1414973",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 93,
-    "uuid": "70cb564e-020c-4132-bb78-78a7c3066c7c",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 94,
-    "uuid": "4e31f1c3-5c90-4021-93fc-a075b9f85ef8",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 95,
-    "uuid": "b9cb43be-f457-4c73-8c68-1c3cdc5a0bfc",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 96,
-    "uuid": "68d0faaf-8eec-4ee9-9f76-b69448b0f4f9",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 97,
-    "uuid": "ecebef0f-b689-4dec-9dfa-b0a9af1323db",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 98,
-    "uuid": "b21ee11e-6e07-46ea-9372-ebb6a2f7a02b",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
-    "state": "planned"
-  },
-  {
-    "id": 99,
-    "uuid": "c1af346b-bde2-44c5-8d01-a1b0cf57ceb4",
-    "membership": 39,
-    "start": "2025-10-01T00:00:00.000Z",
-    "end": "2026-08-01T00:00:00.000Z",
+    "uuid": "54802a7d-fcde-4eb3-8d2c-22b36529b398",
+    "membership": 5,
+    "start": "2025-08-31T21:00:00.000Z",
+    "end": "2026-06-30T21:00:00.000Z",
     "state": "planned"
   }
 ]

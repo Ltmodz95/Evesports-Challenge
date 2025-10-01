@@ -20,7 +20,7 @@ export class ListMemberShipsHandler {
     let data: { membership: Membership, periods: BillingPeriod[] }[] = [];
     for (const membership of memeberships) {
       const membershipPeriods = indexedMembershipPeriods[membership.id];
-      data.push({ membership, periods: membershipPeriods });
+      data.push({ membership, periods: membershipPeriods || [] });
     }
     return data;
   }
