@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
   }
 
   const validFrom = req.body.validFrom ? new Date(req.body.validFrom) : new Date()
-  const validUntil = new Date(validFrom);
+  const validUntil = new Date(validFrom); // will be valid for one day only
   if (req.body.billingInterval === 'monthly') {
     validUntil.setMonth(validFrom.getMonth() + req.body.billingPeriods);
   } else if (req.body.billingInterval === 'yearly') {

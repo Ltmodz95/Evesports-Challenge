@@ -1,15 +1,25 @@
 import express, { Request, Response } from "express"
-import memberships from "../../data/memberships.json"
-import membershipPeriods from "../../data/membership-periods.json"
-
+import { CreateMembershipHandler } from "../domain/membership/use-cases/create-membership/create-membership.handler";
+import { RepositoryFactory } from "../infra/repository-factory.factory";
+import { ListMemberShipsHandler } from "../domain/membership/use-cases/list-memberships/list-memberships.handler";
 const router = express.Router();
+const membershipRepository = RepositoryFactory.createMembershipRepository();
+const billingPeriodRepository = RepositoryFactory.createBillingPeriodRepository();
 
-router.get("/", (req: Request, res: Response) => {
-  throw new Error('not implemented')
+router.get("/", async (req: Request, res: Response) => {
+  const listMemberShipsHandler = new ListMemberShipsHandler(membershipRepository, billingPeriodRepository);
+  const memberships = await listMemberShipsHandler.execute();
+  res.status(200).json({ memberships });
 })
 
-router.post("/", (req: Request, res: Response) => {
-  throw new Error('not implemented')
+router.post("/", async (req: Request, res: Response) => {
+    const createMembershipHandler = new CreateMembershipHandler(membershipRepository, billingPeriodRepository);
+    try {
+    const membership = await createMembershipHandler.execute(req.body);
+    res.status(201).json({ membership });
+    } catch (error) {
+        res.status(400).json({ message: (error as Error).message });
+    }
 })
 
 export default router;
