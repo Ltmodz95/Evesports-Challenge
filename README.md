@@ -4,19 +4,19 @@
 ### The Problem: A Legacy "Fat Controller" Implementation
 
 The legacy route for membership creation is implemented using a Transaction Script pattern, commonly known as a "Fat Controller," where all logic for a single operation is contained within a single procedure. This architectural approach presents several significant challenges that impede maintainability, testability, and scalability.
-* Violation of Separation of Concerns (SoC): The primary issue is the conflation of multiple distinct responsibilities. The controller simultaneously handles HTTP request parsing, input format validation, complex business rule enforcement, and data persistence logic. A controller's core responsibility should be to act as a thin layer that orchestrates the flow between the web interface and the underlying business logic, not to contain the logic itself.
-* Poor Testability: Because the business logic is intrinsically coupled to the web framework's request and response objects, it cannot be unit-tested in isolation. This forces reliance on brittle and complex integration tests rather than fast and focused unit tests.
-* High Coupling and Low Cohesion: This pattern results in high coupling, where the core business rules are not independent of the delivery mechanism (HTTP). This makes it difficult to reuse the logic in other contexts (e.g., a command-line interface or a background job).
-* Reduced Maintainability and Increased Risk: The tight coupling means that any change is inherently risky. Modifying a single business rule could have unintended consequences on input validation or the final HTTP response, making the codebase fragile and difficult to evolve safely.
+* **Violation of Separation of Concerns (SoC)**: The primary issue is the conflation of multiple distinct responsibilities. The controller simultaneously handles HTTP request parsing, input format validation, complex business rule enforcement, and data persistence logic. A controller's core responsibility should be to act as a thin layer that orchestrates the flow between the web interface and the underlying business logic, not to contain the logic itself.
+* **Poor Testability**: Because the business logic is intrinsically coupled to the web framework's request and response objects, it cannot be unit-tested in isolation. This forces reliance on brittle and complex integration tests rather than fast and focused unit tests.
+* **High Coupling and Low Cohesion**: This pattern results in high coupling, where the core business rules are not independent of the delivery mechanism (HTTP). This makes it difficult to reuse the logic in other contexts (e.g., a command-line interface or a background job).
+* **Reduced Maintainability and Increased Risk**: The tight coupling means that any change is inherently risky. Modifying a single business rule could have unintended consequences on input validation or the final HTTP response, making the codebase fragile and difficult to evolve safely.
 
 
 ### The Solution: Adopting Domain-Driven Design (DDD)
 
 To address these challenges, the proposed solution involves refactoring the architecture using the principles of Domain-Driven Design (DDD). DDD is an object-oriented architectural approach that emphasizes a deep understanding of the business domain, modeling it explicitly in the code.
 This methodology directly resolves the issues of the Transaction Script pattern by establishing a layered architecture with a clear separation of concerns, providing several critical advantages:
-* Clear Boundaries and High Cohesion: DDD enforces a separation between the interface (controllers), application (use cases), and domain (core business logic) layers. This ensures that each component has a single, well-defined responsibility.
-* Enhanced Testability: The core business logic is encapsulated within a pure, framework-agnostic domain model. This allows for comprehensive and isolated unit testing of business rules.
-* Improved Maintainability and Scalability: By isolating business logic, the system becomes far less fragile. The modular structure makes the application easier to understand, modify, and extend over time, adhering to the Don't Repeat Yourself (DRY) principle.
+* **Clear Boundaries and High Cohesion**: DDD enforces a separation between the interface (controllers), application (use cases), and domain (core business logic) layers. This ensures that each component has a single, well-defined responsibility.
+* **Enhanced Testability**: The core business logic is encapsulated within a pure, framework-agnostic domain model. This allows for comprehensive and isolated unit testing of business rules.
+* **Improved Maintainability and Scalability**: By isolating business logic, the system becomes far less fragile. The modular structure makes the application easier to understand, modify, and extend over time, adhering to the Don't Repeat Yourself (DRY) principle.
 Ultimately, adopting DDD will transform the codebase from a fragile script into a robust, scalable, and business-centric application that is built for long-term evolution.
 
 
@@ -87,7 +87,7 @@ Before running this application, ensure you have the following installed on your
 
 1. **Clone the repository** (if not already done):
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Ltmodz95/Evesports-Challenge
    cd fullstack-interview
    ```
 
@@ -166,7 +166,7 @@ Creates a new membership and automatically generates billing periods based on th
 | Field | Type | Required | Description | Constraints |
 |-------|------|----------|-------------|-------------|
 | `name` | string | ✅ | Membership plan name | Must not be empty |
-| `recurringPrice` | number | ✅ | Monthly/yearly recurring price | Must be >= 0 |
+| `recurringPrice` | number | ✅ | Monthly/yearly recurring price | Must be > 0 |
 | `paymentMethod` | string | ✅ | Payment method | `"credit_card"` or `"cash"` |
 | `validFrom` | string (ISO 8601) | ✅ | Membership start date | Valid date string |
 | `billingInterval` | string | ✅ | Billing frequency | `"weekly"`, `"monthly"`, or `"yearly"` |
@@ -176,17 +176,12 @@ Creates a new membership and automatically generates billing periods based on th
 ```json
 {
   "membership": {
-    "uuid": "123e4567-e89b-12d3-a456-426614174000",
-    "id": 1,
     "name": "Premium Plan",
-    "recurringPrice": 99.99,
-    "paymentMethod": "credit_card",
+    "recurringPrice": 99,
+    "paymentMethod": "cash",
     "validFrom": "2025-01-01T00:00:00.000Z",
-    "validUntil": "2025-07-01T00:00:00.000Z",
     "billingInterval": "monthly",
     "billingPeriods": 6,
-    "userId": 2000,
-    "state": "active"
   }
 }
 ```
@@ -259,6 +254,7 @@ No request body required.
     "message": "Error message details"
   }
   ```
+
 
 ### Next steps:
 1.  Adding a persistence layer as (SQL)
