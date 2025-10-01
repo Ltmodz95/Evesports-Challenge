@@ -219,5 +219,57 @@
     "userId": 2000,
     "validUntil": "2026-08-01T00:00:00.000Z",
     "state": "active"
+  },
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "id": 18,
+    "name": "test",
+    "recurringPrice": 100,
+    "paymentMethod": "cash",
+    "validFrom": "2025-10-01T00:00:00.000Z",
+    "billingInterval": "monthly",
+    "billingPeriods": 10,
+    "userId": 2000,
+    "validUntil": "2026-08-01T00:00:00.000Z",
+    "state": "active"
+  },
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "id": 19,
+    "name": "test",
+    "recurringPrice": 100,
+    "paymentMethod": "cash",
+    "validFrom": "2025-10-01T00:00:00.000Z",
+    "billingInterval": "monthly",
+    "billingPeriods": 10,
+    "userId": 2000,
+    "validUntil": "2026-08-01T00:00:00.000Z",
+    "state": "active"
+  },
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "id": 20,
+    "name": "test",
+    "recurringPrice": 100,
+    "paymentMethod": "cash",
+    "validFrom": "2025-10-01T00:00:00.000Z",
+    "billingInterval": "monthly",
+    "billingPeriods": 10,
+    "userId": 2000,
+    "validUntil": "2026-08-01T00:00:00.000Z",
+    "state": "active"
+  },
+  {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "id": 21,
+    "name": "test",
+    "recurringPrice": 100,
+    "paymentMethod": "cash",
+    "validFrom": "2025-10-01T00:00:00.000Z",
+    "billingInterval": "monthly",
+    "billingPeriods": 10,
+    "userId": 2000,
+    "validUntil": "2026-08-01T00:00:00.000Z",
+    "state": "active"
   }
 ]
