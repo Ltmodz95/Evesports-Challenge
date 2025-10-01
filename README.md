@@ -263,3 +263,8 @@ No request body required.
 4. Users Role
 5. Rest of the CRUD operations
 6. API Keys for external communications
+
+## Second Task: CSV exporter Design
+
+Here is a simple graph on how the CSV exported system design would look like:
+![graph](https://i.ibb.co/d4ZnmWYN/Screenshot-2025-10-01-at-9-29-35-AM.png)
