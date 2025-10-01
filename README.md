@@ -1,120 +1,269 @@
-# Fullstack Interview Challenge
+## Eversports Challenge: Modernizing the Membership Creation Endpoint
 
-> [!IMPORTANT]
-> You should have received a google doc together with this repository that explains in detail the scope and context of the exercise, together with it's acceptance criteria and any other necessary information for the completion of the challenge.
 
-## Context
+### The Problem: A Legacy "Fat Controller" Implementation
 
-You are working in the product team at eversports that is maintaining the eversports manager. You and your team are working on a bunch of features around memberships within the current quarter.
+The legacy route for membership creation is implemented using a Transaction Script pattern, commonly known as a "Fat Controller," where all logic for a single operation is contained within a single procedure. This architectural approach presents several significant challenges that impede maintainability, testability, and scalability.
+* Violation of Separation of Concerns (SoC): The primary issue is the conflation of multiple distinct responsibilities. The controller simultaneously handles HTTP request parsing, input format validation, complex business rule enforcement, and data persistence logic. A controller's core responsibility should be to act as a thin layer that orchestrates the flow between the web interface and the underlying business logic, not to contain the logic itself.
+* Poor Testability: Because the business logic is intrinsically coupled to the web framework's request and response objects, it cannot be unit-tested in isolation. This forces reliance on brittle and complex integration tests rather than fast and focused unit tests.
+* High Coupling and Low Cohesion: This pattern results in high coupling, where the core business rules are not independent of the delivery mechanism (HTTP). This makes it difficult to reuse the logic in other contexts (e.g., a command-line interface or a background job).
+* Reduced Maintainability and Increased Risk: The tight coupling means that any change is inherently risky. Modifying a single business rule could have unintended consequences on input validation or the final HTTP response, making the codebase fragile and difficult to evolve safely.
 
-The team also started an initiative in this quarter to modernize the codebase by refactoring features implemented in an old technology stack to a more modern one.  
 
-### Domain: Memberships
+### The Solution: Adopting Domain-Driven Design (DDD)
 
-A `Membership` allows a user to participate at any class the a specific sport venue within a specific timespan. Within this timespan, the membership is divided into `MembershipPeriods`. The MembershipPeriods represent billing periods that the user has to pay for.
+To address these challenges, the proposed solution involves refactoring the architecture using the principles of Domain-Driven Design (DDD). DDD is an object-oriented architectural approach that emphasizes a deep understanding of the business domain, modeling it explicitly in the code.
+This methodology directly resolves the issues of the Transaction Script pattern by establishing a layered architecture with a clear separation of concerns, providing several critical advantages:
+* Clear Boundaries and High Cohesion: DDD enforces a separation between the interface (controllers), application (use cases), and domain (core business logic) layers. This ensures that each component has a single, well-defined responsibility.
+* Enhanced Testability: The core business logic is encapsulated within a pure, framework-agnostic domain model. This allows for comprehensive and isolated unit testing of business rules.
+* Improved Maintainability and Scalability: By isolating business logic, the system becomes far less fragile. The modular structure makes the application easier to understand, modify, and extend over time, adhering to the Don't Repeat Yourself (DRY) principle.
+Ultimately, adopting DDD will transform the codebase from a fragile script into a robust, scalable, and business-centric application that is built for long-term evolution.
 
-For the scope of this exercise, the domain model was reduced to a reasonable size. 
 
-#### Entity: Membership
-```ts
-interface Membership {
-    name: string // name of the membership
-    user: number // the user that the membership is assigned to
-    recurringPrice: number // price the user has to pay for every period
-    validFrom: Date // start of the validity
-    validUntil: Date // end of the validity
-    state: string // indicates the state of the membership
-    paymentMethod: string // which payment method will be used to pay for the periods
-    billingInterval: string // the interval unit of the periods
-    billingPeriods: number // the number of periods the membership has
-}
+### An Alternative Approach: The Simple Service Layer
+
+An alternative, more pragmatic solution is the Simple Service Layer pattern. This approach provides an immediate improvement over the Fat Controller by extracting all business logic and data access into a dedicated MembershipService class. The controller's role is reduced to receiving the request, calling the appropriate method on the service (e.g., membershipService.create(...)), and returning the response.
+While this pattern effectively separates concerns from the controller, it is less structured than DDD and does not enforce a rich domain model. The service class itself can become a large, procedural script that handles many different responsibilities, risking the "God Object" anti-pattern over time.
+
+### Comparative Analysis: DDD vs. Simple Service Layer
+
+| Aspect                      | Simple Service Layer                                                                 | Domain-Driven Design (DDD)                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Complexity & Learning Curve** | **Low.** Easy to implement and understand.                                           | **High.** Requires understanding concepts like Aggregates, VOs, and Repositories.      |
+| **Initial Development Speed** | **Fast.** Less boilerplate and upfront design needed.                                | **Slow.** Requires more ceremony and a deeper analysis of the domain.                    |
+| **Long-Term Maintainability** | **Medium.** Can degrade into a complex "God Object" as features are added.           | **High.** Boundaries and patterns explicitly manage and contain complexity.            |
+| **Best For** | Simple CRUD applications, prototypes, and domains with straightforward business logic. | Applications with complex, nuanced business rules that are core to the system's value. |
+
+## Justification for Choosing DDD
+
+While a Simple Service Layer would be a significant step forward, Domain-Driven Design is the recommended approach for this specific challenge for the following strategic reasons:
+1. **The Inherent Complexity of the Domain:** The existing logic, though contained in one file, already demonstrates a non-trivial level of complexity. Rules regarding billing intervals, payment methods, and pricing are not simple CRUD operations. DDD provides the necessary tools (like Value Objects for Billing and Aggregates for Membership) to model these rules explicitly and robustly, preventing the logic from becoming an unmanageable script.
+2. **Long-Term Vision and Scalability**: A feature like memberships is central to the business and is likely to evolve. Future requirements might include upgrades, downgrades, custom billing cycles, or promotions. DDD establishes a clean, scalable foundation that can accommodate such changes without requiring a complete rewrite. The clear separation of concerns ensures that adding new features is a structured and low-risk process.
+3. **Guaranteed Consistency and Reliability**: By using an Aggregate Root (Membership), we create a transactional boundary that guarantees a membership is always in a valid and consistent state. This is critical for a core business function and provides a level of reliability that a procedural service layer cannot enforce as strictly.
+In conclusion, the decision to use DDD is a strategic investment in the application's future. It provides the architectural rigor needed to manage the domain's complexity, ensuring the system remains maintainable, testable, and aligned with business goals as it grows.
+
+
+## System Components
+
+```mermaid
+graph TD
+    A[User sends POST /memberships] --> B(API Gateway);
+    B --> C[Controller];
+
+    subgraph "Processing Flow"
+        C --> D{1. Validate Data Format};
+        D -- Yes (Valid) --> E[Application Handler];
+        E --> F{2. Validate Business Rules};
+        F -- Yes (Valid) --> G[Repository];
+        G --> H[Storage];
+    end
+
+    subgraph "Response Path"
+        H -- Success --> I[✅ 201 Created];
+        D -- No (Invalid) --> J[❌ 400 Bad Request];
+        F -- No (Invalid) --> K[❌ 422 Unprocessable Entity];
+        I --> A;
+        J --> A;
+        K --> A;
+    end
+
+    %% Styling for clarity
+    style J fill:#f9d7d7,stroke:#e74c3,color:black,stroke-width:2px;
+    style K fill:#f9d7d7,stroke:#e74c3c,color:black,stroke-width:2px;
+    style I fill:#d4edda,stroke:#28a745,color:black,stroke-width:2px;
 ```
 
-#### Entity: MembershipPeriod
-```ts
-interface MembershipPeriod {
-    membership: number // membership the period is attached to
-    start: Date // indicates the start of the period
-    end: Date // indicates the end of the period
-    state: string
-}
-```
+## Getting Started
 
+### Prerequisites
 
-## Task 1 - Modernization of the membership codebase (backend only)
+Before running this application, ensure you have the following installed on your system:
 
-Before your team can start to implement new features, you guys decided to **modernize the backend codebase** first.
-
-Your task is to **refactor two endpoints** implemented in the **legacy codebase** that can be used to list and create memberships:
-
-GET /legacy/memberships (`src/legacy/routes/membership.routes.js`)
-POST /legacy/memberships (`src/legacy/routes/membership.routes.js`)
-
-Your new implementation should be accessible through new endpoints in the **modern codebase** that are already prepared:
-
-GET /memberships (`src/modern/routes/membership.routes.ts`)
-POST /memberships (`src/modern/routes/membership.routes.ts`)
-
-When refactoring, you should consider the following aspects:
-
-- The response from the endpoints should be exactly the same. Use the same error messages that are used in the legacy implementation.
-- You write read- and maintainable code
-- You use Typescript instead of Javascript to enabled type safety
-- Your code is separated based on concerns
-- Your code is covered by automated tests to ensure the stability of the application
-
-> [!NOTE]
-> For the scope of this task, the data used is mocked within the json files `membership.json` and `membership-periods.json`
-
-> [!NOTE]
-> We provided you with an clean express.js server to run the example. For your implementations, feel free to use any library out there to help you with your solution. If you decide to choose another JavaScript/TypeScript http library/framework (eg. NestJs) update the run config described below if needed, and ensure that the routes of the described actions don't change.
-
-
-## Task 2 - Design an architecture to provide a membership export (conception only)
-
-The team discovered that users are interested in **exporting all of their memberships** from the system to run their own analysis once a month as a **CSV file**. Because the creation of the export file would take some seconds, the team decided to go for an **asynchronous process** for creating the file and sending it via email. The process will be triggered by an API call of the user. 
-
-Your task is to **map out a diagram** that visualizes the asynchronous process from receiving the request to sending the export file to the user. This diagram should include all software / infrastructure components that will be needed to make the process as stable and scalable as possible. 
-
-Because the team has other things to work on too, this task is timeboxed to **1 hour** and you should share the architecture diagram as a **PDF file**.
-
-> [!NOTE]
-> Feel free to use any tool out there to create your diagram. If you are not familiar with such a tool, you can use www.draw.io. 
-
-## Repository Intro
-In this repository you will find an plain express.js server the exposes API endpoints to consumers. For this exercise, the API endpoints are not protected.
+- **Node.js** (version 16.x or higher)
+- **Yarn** (comes with Node.js) 
+- **TypeScript** (will be installed as a dependency)
 
 ### Installation
 
-```sh
-npm install
+1. **Clone the repository** (if not already done):
+   ```bash
+   git clone <repository-url>
+   cd fullstack-interview
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   yarn install
+   ```
+
+
+### Running the Server
+
+1. **Start the development server**:
+   ```bash
+   yarn start
+   ```
+   
+   The server will start on `http://localhost:3099` by default.
+
+2. **Verify the server is running**:
+   ```bash
+   curl http://localhost:3099/memberships
+   ```
+   
+   You should receive a JSON response with existing memberships.
+
+### Running Tests
+
+To run the test suite:
+
+```bash
+yarn test
 ```
 
-### Usage
 
-```sh
-npm run start
+### Project Structure
+
+```
+src/
+├── modern/                    # Modern DDD implementation
+│   ├── domain/               # Domain layer (business logic)
+│   │   └── membership/
+│   │       ├── aggregates/   # Aggregate roots
+│   │       ├── entities/     # Domain entities
+│   │       ├── repos/        # Repository interfaces
+│   │       ├── use-cases/    # Application use cases
+│   │       └── value-objects/# Value objects
+│   ├── infra/               # Infrastructure layer
+│   │   └── *.repository.ts   # Repository implementations
+│   └── routes/              # API routes
+├── legacy/                  # Legacy implementation
+└── data/                    # JSON data files
 ```
 
-### Run test
-```sh
-npm run test
+## API Endpoints
+
+The modernized membership system provides two main endpoints for managing memberships:
+
+### 1. Create Membership
+**POST** `/memberships`
+
+Creates a new membership and automatically generates billing periods based on the specified billing interval and number of periods.
+
+#### Request Body
+```json
+{
+  "name": "Premium Plan",
+  "recurringPrice": 99.99,
+  "paymentMethod": "credit_card",
+  "validFrom": "2025-01-01T00:00:00.000Z",
+  "billingInterval": "monthly",
+  "billingPeriods": 6
+}
 ```
 
-## 🗒️ Conditions
+#### Request Body Schema
+| Field | Type | Required | Description | Constraints |
+|-------|------|----------|-------------|-------------|
+| `name` | string | ✅ | Membership plan name | Must not be empty |
+| `recurringPrice` | number | ✅ | Monthly/yearly recurring price | Must be >= 0 |
+| `paymentMethod` | string | ✅ | Payment method | `"credit_card"` or `"cash"` |
+| `validFrom` | string (ISO 8601) | ✅ | Membership start date | Valid date string |
+| `billingInterval` | string | ✅ | Billing frequency | `"weekly"`, `"monthly"`, or `"yearly"` |
+| `billingPeriods` | number | ✅ | Number of billing periods | Monthly: 6-12, Yearly: 3-10 |
 
-- You will have multiple days for the challenge, but most of our candidates spend around **8h to 10h** on this assignment.
-- You should put your code in GitHub or GitLab/Bitbucket and send us the link to your repository where we can find the source code. That means no ZIP files.
-- Please make sure to include any additional instructions in a readme in case you change something about the compilation or execution of the codebase.
+#### Success Response (201 Created)
+```json
+{
+  "membership": {
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "id": 1,
+    "name": "Premium Plan",
+    "recurringPrice": 99.99,
+    "paymentMethod": "credit_card",
+    "validFrom": "2025-01-01T00:00:00.000Z",
+    "validUntil": "2025-07-01T00:00:00.000Z",
+    "billingInterval": "monthly",
+    "billingPeriods": 6,
+    "userId": 2000,
+    "state": "active"
+  }
+}
+```
 
-## 💻 Technologies:
+#### Error Responses
+- **400 Bad Request**: Invalid request body or validation errors
+  ```json
+  {
+    "message": "missingMandatoryFields"
+  }
+  ```
+- **500 Internal Server Error**: Server-side errors
+  ```json
+  {
+    "message": "Error message details"
+  }
+  ```
 
-We believe that great developers are not bound to a specific technology set, but no matter their toolbox they are able to think critically about how to structure and design good code. For this exercise, we provided just a small and simple set of tools to run the a application and tests. Feel free to use any library out there to help you with your implementation.
+### 2. List Memberships
+**GET** `/memberships`
 
-### Pre-installed
+Retrieves all memberships with their associated billing periods.
 
-- Express - https://expressjs.com/
-- TypeScript - https://www.typescriptlang.org/
-- Jest - https://jestjs.io/
+#### Request
+No request body required.
 
-Best of luck and looking forward to what you are able to accomplish! 🙂
+#### Success Response (200 OK)
+```json
+[
+  {
+    "membership": {
+      "uuid": "123e4567-e89b-12d3-a456-426614174000",
+      "id": 1,
+      "name": "Premium Plan",
+      "recurringPrice": 99.99,
+      "paymentMethod": "credit_card",
+      "validFrom": "2025-01-01T00:00:00.000Z",
+      "validUntil": "2025-07-01T00:00:00.000Z",
+      "billingInterval": "monthly",
+      "billingPeriods": 6,
+      "userId": 2000,
+      "state": "active"
+    },
+    "periods": [
+      {
+        "id": 0,
+        "uuid": "456e7890-e89b-12d3-a456-426614174001",
+        "membership": 1,
+        "start": "2025-01-01T00:00:00.000Z",
+        "end": "2025-02-01T00:00:00.000Z",
+        "state": "issued"
+      },
+      {
+        "id": 0,
+        "uuid": "789e0123-e89b-12d3-a456-426614174002",
+        "membership": 1,
+        "start": "2025-02-01T00:00:00.000Z",
+        "end": "2025-03-01T00:00:00.000Z",
+        "state": "planned"
+      }
+    ]
+  }
+]
+```
+
+#### Error Responses
+- **500 Internal Server Error**: Server-side errors
+  ```json
+  {
+    "message": "Error message details"
+  }
+  ```
+
+### Next steps:
+1.  Adding a persistence layer as (SQL)
+2. Using Zod for schema validation
+3. Adding authentication and authorization
+4. Users Role
+5. Rest of the CRUD operations
+6. API Keys for external communications
