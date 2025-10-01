@@ -20,7 +20,7 @@ export class CreateMembershipHandler {
   ) {}
 
   async execute(command: CreateMembershipRequest): Promise<Membership> {
-    const membership = await Membership.create(command);
+    const membership = Membership.create(command);
     await this.membershipRepo.save(membership);
     for (let i = 0; i < Number(membership.billingPeriods); i++) {
       const billingPeriod = await BillingPeriod.create({

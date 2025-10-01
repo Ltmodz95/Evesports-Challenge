@@ -17,6 +17,12 @@ interface MembershipProps {
     userId?: number;
   }
 
+enum MembershipState {
+    ACTIVE = 'active',
+    PENDING = 'pending',
+    EXPIRED = 'expired',
+}
+
 export class Membership {
     uuid: string;
     id: number;
@@ -28,7 +34,7 @@ export class Membership {
     billingInterval: string;
     billingPeriods: number;
     userId: number;
-    state: string;
+    state: MembershipState;
     constructor(props: MembershipProps) {
         this.uuid = uuidv4();
         this.id = 0; // will be set by the repository defaulting to 0
@@ -44,7 +50,7 @@ export class Membership {
     }
 
 
-    static async create(props: MembershipProps) {
+    static create(props: MembershipProps) {
         Billing.create(props.billingInterval, props.billingPeriods);
         const membership = new Membership(props);
         membership.validate();
@@ -75,13 +81,13 @@ export class Membership {
         return validUntil;
     }
 
-    private setState(): string {
-        let state = 'active';
+    private setState(): MembershipState {
+        let state = MembershipState.ACTIVE;
         if (this.validFrom > new Date()) {
-            state = 'pending';
+            state = MembershipState.PENDING;
         } else if (this.validUntil < new Date()) {
-            state = 'expired';
+            state = MembershipState.EXPIRED;
         }
-        return state
+        return state;
     }
 }
