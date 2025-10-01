@@ -2,6 +2,7 @@ import express, { Request, Response } from "express"
 import { CreateMembershipHandler } from "../domain/membership/use-cases/create-membership/create-membership.handler";
 import { RepositoryFactory } from "../infra/repository-factory.factory";
 import { ListMemberShipsHandler } from "../domain/membership/use-cases/list-memberships/list-memberships.handler";
+import { CreateBillingPeriodHandler } from "../domain/membership/use-cases/create-billing-period/create-billing-period.handler";
 const router = express.Router();
 const membershipRepository = RepositoryFactory.createMembershipRepository();
 const billingPeriodRepository = RepositoryFactory.createBillingPeriodRepository();
@@ -19,8 +20,10 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
     const createMembershipHandler = new CreateMembershipHandler(membershipRepository, billingPeriodRepository);
+    const createBillingPeriodHandler = new CreateBillingPeriodHandler(billingPeriodRepository);
     try {
     const membership = await createMembershipHandler.execute(req.body);
+    await createBillingPeriodHandler.execute(membership);
     res.status(201).json({ membership });
     } catch (error) {
         res.status(400).json({ message: (error as Error).message });
