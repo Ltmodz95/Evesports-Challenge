@@ -25,10 +25,10 @@ export class BillingPeriod {
         this.membership = props.membershipId;
         this.start = props.start;
         this.end = props.end;
-        this.state = BillingPeriodState.PLANNED;
+        this.state = this.start > new Date() ? BillingPeriodState.PLANNED : BillingPeriodState.ISSUED;
     }
 
-    static async create(props: BillingPeriodProps) {
+    static create(props: BillingPeriodProps) {
         return new BillingPeriod(props);
     }
 }

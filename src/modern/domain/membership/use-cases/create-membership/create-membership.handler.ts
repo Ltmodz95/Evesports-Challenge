@@ -22,14 +22,33 @@ export class CreateMembershipHandler {
   async execute(command: CreateMembershipRequest): Promise<Membership> {
     const membership = Membership.create(command);
     await this.membershipRepo.save(membership);
-    for (let i = 0; i < Number(membership.billingPeriods); i++) {
-      const billingPeriod = await BillingPeriod.create({
+  
+    let periodStart = new Date(membership.validFrom);
+  
+    for (let i = 0; i < membership.billingPeriods; i++) {
+      const startDate = new Date(periodStart);
+      const endDate = new Date(startDate);
+  
+      if (membership.billingInterval === 'monthly') {
+        endDate.setMonth(startDate.getMonth() + 1);
+      } else if (membership.billingInterval === 'yearly') {
+        endDate.setFullYear(startDate.getFullYear() + 1);
+      } else if (membership.billingInterval === 'weekly') {
+        endDate.setDate(startDate.getDate() + 7);
+      }
+  
+      const billingPeriod = BillingPeriod.create({
         membershipId: membership.id,
-        start: new Date(membership.validFrom),
-        end: new Date(membership.validUntil),
+        start: startDate,
+        end: endDate,
       });
+      
       await this.billingPeriodRepo.save(billingPeriod);
+      
+      periodStart = endDate;
     }
+  
     return membership;
   }
+  
 }
