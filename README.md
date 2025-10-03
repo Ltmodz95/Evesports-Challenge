@@ -46,7 +46,8 @@ In conclusion, the decision to use DDD is a strategic investment in the applicat
 ## System Components
 
 ```mermaid
-graph TD;
+
+Graph TD;
     A[User sends POST /memberships] --> B(API Gateway);
     B --> C[Controller];
 
@@ -71,6 +72,8 @@ graph TD;
     style J fill:#f9d7d7,stroke:#e74c3,color:black,stroke-width:2px;
     style K fill:#f9d7d7,stroke:#e74c3c,color:black,stroke-width:2px;
     style I fill:#d4edda,stroke:#28a745,color:black,stroke-width:2px;
+
+
 ```
 
 ## Getting Started
