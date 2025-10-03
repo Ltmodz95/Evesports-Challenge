@@ -46,7 +46,11 @@ In conclusion, the decision to use DDD is a strategic investment in the applicat
 ## System Components
 
 ```mermaid
-info
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
 ```
 
 ## Getting Started
