@@ -46,34 +46,7 @@ In conclusion, the decision to use DDD is a strategic investment in the applicat
 ## System Components
 
 ```mermaid
-
-Graph TD;
-    A[User sends POST /memberships] --> B(API Gateway);
-    B --> C[Controller];
-
-    subgraph "Processing Flow"
-        C --> D{1. Validate Data Format};
-        D -- Yes (Valid) --> E[Application Handler];
-        E --> F{2. Validate Business Rules};
-        F -- Yes (Valid) --> G[Repository];
-        G --> H[Storage];
-    end
-
-    subgraph "Response Path"
-        H -- Success --> I[✅ 201 Created];
-        D -- No (Invalid) --> J[❌ 400 Bad Request];
-        F -- No (Invalid) --> K[❌ 422 Unprocessable Entity];
-        I --> A;
-        J --> A;
-        K --> A;
-    end
-
-    %% Styling for clarity
-    style J fill:#f9d7d7,stroke:#e74c3,color:black,stroke-width:2px;
-    style K fill:#f9d7d7,stroke:#e74c3c,color:black,stroke-width:2px;
-    style I fill:#d4edda,stroke:#28a745,color:black,stroke-width:2px;
-
-
+info
 ```
 
 ## Getting Started
