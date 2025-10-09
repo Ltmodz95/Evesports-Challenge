@@ -256,15 +256,51 @@ No request body required.
   ```
 
 
-### Next steps:
-1.  Adding a persistence layer as (SQL)
-2. Using Zod for schema validation
-3. Adding authentication and authorization
-4. Users Role
-5. Rest of the CRUD operations
-6. API Keys for external communications
+### Future Enhancements:
+1. **Persistence Layer**: Implement a relational database persistence layer (e.g., PostgreSQL with Prisma).
+2. **Schema Validation**: Introduce robust schema validation using a library like Zod.
+3. **Authentication & Authorization**: Implement user authentication (e.g., JWT) and role-based access control.
+4. **Expanded Operations**: Add the remaining CRUD operations (Update, Delete) for memberships.
+5. **API Security**: Implement API key authentication for secure external communications.
 
 ## Second Task: CSV exporter Design
 
-Here is a simple graph on how the CSV exported system design would look like:
-![graph](https://i.ibb.co/d4ZnmWYN/Screenshot-2025-10-01-at-9-29-35-AM.png)
+For generating large CSV exports without blocking the user, an asynchronous architecture is proposed.
+
+```mermaid
+graph LR
+    subgraph "User Interaction (Synchronous)"
+        A[User] -->|1. POST /exports| B(API Gateway);
+        B -->|2. Route Request| C[Web Service API];
+        C -->|3. Publish Job 'export_requested'| D(Message Queue);
+        C -->|4. Return 202 Accepted| A;
+    end
+
+    subgraph "Backend Processing (Asynchronous)"
+        D -->|5. Consume Job| E[Export Worker Service];
+        E -->|6. Query Memberships| F(Database Read Replica);
+        F -->|7. Return Data| E;
+        E -->|8. Generate & Upload CSV| G(Object Storage);
+        G -->|9. Return Secure URL| E;
+        E -->|10. Dispatch Notification| H(Notification Service);
+        H -->|11. Send Email w/ Link| I[User's Email Client];
+    end
+```
+
+**Process Flow**
+
+1. A user initiates an export via a POST /exports request.
+
+2. The API Gateway validates the request and can perform initial checks, such as rate limiting or rejecting duplicate requests for the same user.
+
+3. The Web Service API publishes a job to a Message Broker (e.g., Kafka, RabbitMQ) and immediately returns a 202 Accepted response to the user. This decouples the request from the actual processing.
+
+4. A dedicated Worker Service, scaled independently, consumes the job from the queue.
+
+5. The worker queries a Database Read Replica to avoid impacting the performance of the primary production database.
+
+6. The worker generates the CSV file and uploads it to a durable Object Storage service (e.g., AWS S3).
+
+7. Upon successful upload, the worker dispatches a notification job to a centralized Notification Service, providing the file URL and user details. This service is responsible for determining the user's preferred communication method (e.g., email, in-app notification) and sending the message.
+
+8. The user receives an email with a secure, time-limited link to download the generated CSV file.

@@ -10,6 +10,7 @@ export class JsonMembershipRepository implements IMembershipRepository {
 
     constructor() {
         this.readData();
+        
     }
 
     async save(membership: Membership): Promise<Membership> {
